@@ -1,21 +1,30 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { AuthContext } from "../../provider/AuthProvider";
 
 const Movie = ({ movie }) => {
   const [like, setLike] = useState(false);
-  const { saved, setSaved } = useContext(AuthContext);
-
+  useEffect(() => {
+    const savedMovies = JSON.parse(localStorage.getItem("movie"));
+    if (savedMovies) {
+      const movieExist = savedMovies.some((mov) => mov.id === movie.id);
+      setLike(movieExist);
+    }
+  }, [movie.id]);
   const handleSavedMovie = (movie) => {
     let newAddMovie = [];
     let exist = localStorage.getItem("movie");
     if (exist) {
       newAddMovie = JSON.parse(exist);
+      let movieExist = newAddMovie.some((mov) => mov.id === movie.id);
+      if (movieExist) {
+        alert("Movie already exists");
+        return;
+      }
     }
     newAddMovie.push(movie);
     const saveMovie = JSON.stringify(newAddMovie);
     localStorage.setItem("movie", saveMovie);
-    setLike(!like);
+    setLike(true);
   };
 
   return (
@@ -30,11 +39,14 @@ const Movie = ({ movie }) => {
           {movie?.title}
         </p>
         {like ? (
-          <FaHeart className="absolute top-4 left-4 text-gray-400" />
+          <FaHeart
+            className="absolute top-4 left-4 text-red-500 cursor-pointer"
+            onClick={() => handleSavedMovie(movie)}
+          />
         ) : (
           <FaRegHeart
+            className="absolute top-4 left-4 text-gray-400 cursor-pointer"
             onClick={() => handleSavedMovie(movie)}
-            className="absolute top-4 left-4 text-gray-400"
           />
         )}
       </div>

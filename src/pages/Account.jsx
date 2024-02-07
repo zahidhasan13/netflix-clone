@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import SavedMovie from "../layout/components/savedMovie";
+import SavedMovie from "../components/savedMovie";
 
 const Account = () => {
   return (

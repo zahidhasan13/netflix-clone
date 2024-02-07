@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/N-logo.png";
+import logo from "../assets/N-logo.png";
 import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
+import { AuthContext } from "../provider/AuthProvider";
 const Header = () => {
   const { user, logOutUser } = useContext(AuthContext);
 

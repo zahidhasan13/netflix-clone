@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Api from "../../ApiKey";
+import Api from "../ApiKey";
 
 const Hero = () => {
   const [movies, setMovies] = useState([]);

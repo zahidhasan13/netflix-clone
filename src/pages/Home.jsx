@@ -1,6 +1,6 @@
 import Api from "../ApiKey";
-import Hero from "../layout/components/Hero";
-import Row from "../layout/components/Row";
+import Hero from "../components/Hero";
+import Row from "../components/Row";
 
 const Home = () => {
   return (
