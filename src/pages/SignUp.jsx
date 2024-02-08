@@ -26,7 +26,7 @@ const SignUp = () => {
       />
       <div className="bg-black/60 fixed right-0 left-0 w-full h-screen"></div>
       <div className="fixed w-full px-4 py-24 z-50">
-        <div className="w-[450px] h-[500px] mx-auto bg-black/75">
+        <div className="md:w-[450px] md:h-[500px] mx-auto bg-black/75">
           <div className="max-w-[320px] mx-auto py-16">
             <h1 className="text-3xl font-bold">sign Up</h1>
             <form onSubmit={handleSignup} className="w-full flex flex-col py-4">

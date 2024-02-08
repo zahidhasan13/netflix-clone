@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Account from "../pages/Account";
+import PrivateRoute from "./PrivateRoute";
+import MovieDetails from "../pages/MovieDetails";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +26,19 @@ const router = createBrowserRouter([
       },
       {
         path: "account",
-        element: <Account></Account>,
+        element: (
+          <PrivateRoute>
+            <Account></Account>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "movieDetails/:id",
+        element: (
+          <PrivateRoute>
+            <MovieDetails></MovieDetails>
+          </PrivateRoute>
+        ),
       },
     ],
   },

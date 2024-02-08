@@ -30,7 +30,7 @@ const Hero = () => {
           src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
           alt={movie?.title}
         />
-        <div className="absolute w-full md:top-[30%] top-[50%] p-4 md:p-8">
+        <div className="absolute w-full top-[30%] p-4 md:p-8">
           <h1 className="text-3xl font-bold">{movie?.title}</h1>
           <div className="my-6">
             <button className="px-5 py-2 border bg-white text-black font-semibold hover:bg-transparent hover:text-white transition-all">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const SavedMovie = () => {
   const [saved, setSaved] = useState([]);
@@ -52,9 +53,11 @@ const SavedMovie = () => {
                 alt={movie?.title}
               />
               <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100">
-                <p className="whitespace-normal text-xs md:text-sm font-bold flex items-center justify-center h-full">
-                  {movie?.title}
-                </p>
+                <Link to={`/movieDetails/${movie?.id}`}>
+                  <p className="whitespace-normal text-xs md:text-sm font-bold flex items-center justify-center h-full">
+                    {movie?.title}
+                  </p>
+                </Link>
                 <p>
                   <RxCross2
                     onClick={() => handleRemove(movie?.id)}
