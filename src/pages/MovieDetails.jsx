@@ -11,11 +11,13 @@ const MovieDetails = () => {
   return (
     <div className="md:px-8 md:py-20">
       <div className="grid md:grid-cols-3 md:gap-10">
-        <img
-          src={`https://image.tmdb.org/t/p/original/${allmovies?.poster_path}`}
-          alt={allmovies?.title}
-        />
-        <div className="px-4 md:px-0 my-5 md:my-0 col-span-2">
+        <div className="md:col-span-1 w-full">
+          <img
+            src={`https://image.tmdb.org/t/p/original/${allmovies?.poster_path}`}
+            alt={allmovies?.title}
+          />
+        </div>
+        <div className="px-4 md:px-0 my-5 md:my-0 md:col-span-2">
           <h1 className="text-2xl font-bold">
             {allmovies?.title}{" "}
             <span className="text-xl">({allmovies?.original_title})</span>
