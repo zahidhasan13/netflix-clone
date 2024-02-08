@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSignup = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,10 +13,10 @@ const SignUp = () => {
 
     createUser(email, password)
       .then((user) => {
-        console.log(user.result);
         form.reset();
+        navigate("/");
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {});
   };
   return (
     <div className="w-full h-screen">

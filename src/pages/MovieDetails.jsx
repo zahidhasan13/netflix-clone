@@ -7,7 +7,6 @@ const MovieDetails = () => {
   const [movies] = useMovie();
   const { id } = useParams();
   const allmovies = movies.find((m) => m?.id === parseInt(id));
-  console.log(allmovies);
   return (
     <div className="md:px-8 md:py-20">
       <div className="grid md:grid-cols-3 md:gap-10">

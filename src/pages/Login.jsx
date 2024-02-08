@@ -13,11 +13,10 @@ const Login = () => {
 
     logInUser(email, password)
       .then((user) => {
-        console.log(user.result);
         form.reset();
         navigate("/");
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {});
   };
   return (
     <div className="w-full h-screen">
