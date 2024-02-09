@@ -11,6 +11,11 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    if (password.length < 6) {
+      alert("Please enter password at least 6 characters");
+      return;
+    }
+
     createUser(email, password)
       .then((user) => {
         form.reset();
